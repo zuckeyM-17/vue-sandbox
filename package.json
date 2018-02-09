@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "buid-storybook": "build-storybook -s public",
+    "vue": "vue",
+    "lint": "prettier --write src/**/*.js .storybook/**/*.js"
   },
   "author": "",
   "license": "ISC",
