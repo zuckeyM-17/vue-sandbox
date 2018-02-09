@@ -7,7 +7,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "buid-storybook": "build-storybook -s public",
     "vue": "vue",
-    "lint": "prettier --write src/**/*.js .storybook/**/*.js"
+    "lint": "prettier --write src/**/*.js src/**/*.vue .storybook/**/*.js"
   },
   "author": "",
   "license": "ISC",
