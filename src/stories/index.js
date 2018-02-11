@@ -2,9 +2,21 @@ import Vue from "vue";
 
 import { storiesOf } from "@storybook/vue";
 
-import MyButton from "./../components/Button.vue";
+import MyForm from "./../components/Form.vue";
 
 storiesOf("Buttons", module).add("simple", () => ({
-  components: { MyButton },
-  template: "<MyButton/>"
+  components: { MyForm },
+  data() {
+    return {
+      payload: {
+        message: "hello",
+        required: true,
+        label: "郵便番号"
+      },
+      style: {
+        width: "150px",
+      }
+    };
+  },
+  template: '<MyForm :payload="payload" :style="style"></MyForm>'
 }));
