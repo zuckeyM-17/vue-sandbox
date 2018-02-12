@@ -33,6 +33,10 @@ input {
   line-height: 1.5;
   padding: 22px 90px 5px 10px;
   border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
 }
 
 input:focus {
