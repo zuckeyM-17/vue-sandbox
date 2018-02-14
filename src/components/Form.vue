@@ -1,37 +1,64 @@
 <template>
-  <fieldset>
-    <span>{{ payload.required ? "必須" : "任意" }}</span>
-    <label>
-      {{ payload.label }}
-      <input
-        type="text"
-        v-bind:placeholder="payload.message"
-      />
-    </label>
+  <fieldset v-bind:style="{ width: styles.width + 'px' }">
+    <i
+      class="fas fa-arrows-alt"
+      v-if="payload.draggable"
+    ></i>
+    <span v-bind:style="{
+      backgroundColor: (payload.required ? '#eed3d7' : '#d6e9c6'),
+      left: (payload.draggable ? '20px' : '2px')
+    }">{{ payload.required ? "必須" : "任意" }}</span>
+    <label
+      v-bind:style="{ left: payload.draggable ? '55px' : '35px' }"  
+    >{{ payload.label }}</label>
+    <input
+      type="text"
+      v-bind:placeholder="payload.message"
+    />
   </fieldset>
 </template>
 
 <script>
 import Vue from "vue";
+
 export default Vue.extend({
-  props: [
-    "payload",
-    "style"
-  ],
-  computed: {
-  }
+  props: ["payload", "styles"],
+  computed: {}
 });
 </script>
 
 <style scoped>
+.fa-arrows-alt {
+  position: absolute;
+  left: 3px;
+  top: 5px;
+}
+
+span {
+  color: #ffffff;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  padding: 1px 2px 1px 2px;
+}
+
+label {
+  position: absolute;
+  top: 2px;
+  left: 35px;
+}
+
 fieldset {
-  border: 1px solid #CCCCCC;
+  margin: 2px;
+  border: 1px solid #cccccc;
+  font-size: 12px;
+  position: relative;
 }
 
 input {
   font-size: 18px;
   line-height: 1.5;
-  padding: 22px 90px 5px 10px;
+  padding: 25px 10px 5px 10px;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -44,6 +71,6 @@ input:focus {
 }
 
 fieldset:focus {
-    border: 1px solid #478cff;
+  border: 1px solid #478cff;
 }
 </style>
