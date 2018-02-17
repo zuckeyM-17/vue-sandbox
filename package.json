@@ -24,6 +24,7 @@
     "webpack": "^3.11.0"
   },
   "dependencies": {
-    "vue": "^2.5.13"
+    "vue": "^2.5.13",
+    "vuedraggable": "^2.16.0"
   }
 }
