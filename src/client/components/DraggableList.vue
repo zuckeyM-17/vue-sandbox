@@ -40,7 +40,7 @@ export default Vue.extend({
           payload: { id: 3, message: "キー名", required: true, label: "3333333" },
           styles: { width: 150 }
         },
-      ].map(field => { ...field, { draggable: true } }),
+      ].map(field => Object.assign(field, {payload: Object.assign(field.payload, { draggable: true } )})),
       options: { handle: '.drag-handler' }
     };
   },
