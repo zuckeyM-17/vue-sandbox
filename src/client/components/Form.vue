@@ -1,13 +1,18 @@
 <template>
   <fieldset v-bind:style="{ width: styles.width + 'px' }">
-    <i
-      class="fas fa-arrows-alt"
+    <span
       v-if="payload.draggable"
-    ></i>
-    <span v-bind:style="{
-      backgroundColor: (payload.required ? '#eed3d7' : '#d6e9c6'),
-      left: (payload.draggable ? '20px' : '2px')
-    }">{{ payload.required ? "必須" : "任意" }}</span>
+      class="drag-handler"
+    >
+      <i class="fas fa-arrows-alt"></i>
+    </span>
+    <span
+      class="requirement-label"
+      v-bind:style="{
+        backgroundColor: (payload.required ? '#eed3d7' : '#d6e9c6'),
+        left: (payload.draggable ? '20px' : '2px')
+      }"
+    >{{ payload.required ? "必須" : "任意" }}</span>
     <label
       v-bind:style="{ left: payload.draggable ? '55px' : '35px' }"  
     >{{ payload.label }}</label>
@@ -28,13 +33,17 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.fa-arrows-alt {
+.drag-handler {
   position: absolute;
   left: 3px;
   top: 5px;
 }
 
-span {
+.drag-handler:hover {
+  cursor: pointer;
+}
+
+.requirement-label {
   color: #ffffff;
   position: absolute;
   top: 2px;
@@ -60,8 +69,7 @@ input {
   line-height: 1.5;
   padding: 25px 10px 5px 10px;
   border: none;
-  background-color: transparent;
-  cursor: pointer;
+  background-color: #ffffff;
   outline: none;
   appearance: none;
 }
