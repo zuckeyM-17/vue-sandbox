@@ -6,41 +6,41 @@
     @end="drag=false"
     :move="handleMove"
   >
-    <Form
+    <my-form
       v-for="field in fields"
       :key="field.id"
       :payload="field.payload"
       :styles="field.styles"
-    ></Form>
+    ></my-form>
   </draggable>
 </template>
 
 <script>
 import Vue from "vue";
 import draggable from 'vuedraggable'
-import Form from "./Form.vue";
+import MyForm from "./Form.vue";
 
 export default Vue.extend({
   components: {
     draggable,
-    Form,
+    MyForm,
   },
   data() {
     return {
       fields: [
         {
-          payload: { id: 1, message: "キー名", required: true, label: "1111111" },
-          styles: { width: 150 }
+          payload: { id: 1, message: "キー名", required: true, label: "1111111", draggable: true },
+          styles: { width: 200 }
         },
         {
-          payload: { id: 2, message: "キー名", required: false, label: "2222222" },
-          styles: { width: 150 }
+          payload: { id: 2, message: "キー名", required: false, label: "2222222", draggable: true },
+          styles: { width: 200 }
         },
         {
-          payload: { id: 3, message: "キー名", required: true, label: "3333333" },
-          styles: { width: 150 }
+          payload: { id: 3, message: "キー名", required: true, label: "3333333", draggable: true },
+          styles: { width: 200 }
         },
-      ].map(field => Object.assign(field, {payload: Object.assign(field.payload, { draggable: true } )})),
+      ],
       options: { handle: '.drag-handler' }
     };
   },

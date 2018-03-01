@@ -67,11 +67,11 @@ fieldset {
 input {
   font-size: 18px;
   line-height: 1.5;
-  padding: 25px 10px 5px 10px;
+  padding: 25px 0px 5px 10px;
+  width: 90%;
   border: none;
   background-color: #ffffff;
   outline: none;
-  appearance: none;
 }
 
 input:focus {
