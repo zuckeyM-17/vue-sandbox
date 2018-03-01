@@ -81,4 +81,8 @@ input:focus {
 fieldset:focus {
   border: 1px solid #478cff;
 }
+
+.sortable-ghost {
+  opacity: 0;
+}
 </style>
